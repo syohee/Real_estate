@@ -10,11 +10,11 @@ Ruby 2.4.0 Rails 5.1.6
 
 * [ ] **検索機能**
 
-　- 位置検索 
+  * 位置検索 
 　
     地域検索、位置半径で検索
 
-  - 条件検索
+  * 条件検索
   
     家賃の下限~上限、間取りタイプ、建物の種類、こだわり条件を複合検索
   
@@ -51,7 +51,7 @@ Ruby 2.4.0 Rails 5.1.6
 * [ ] **お問い合わせ** 
 
 　- ユーザーが不動産業者にメール
-　
+
 ## カタログ設計
 https://docs.google.com/spreadsheets/d/1flQyok8WbMjkA02tfLkSQdBn02-LJHVZCQUCPGrxrBw/edit#gid=278321252
 ## テーブル定義 
