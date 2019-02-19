@@ -11,7 +11,7 @@ Ruby 2.4.0 Rails 5.1.6
 * [ ] **検索機能**
 
   * 位置検索 <br>
-　
+
     地域検索、位置半径で検索
 
   * 条件検索
@@ -55,9 +55,14 @@ Ruby 2.4.0 Rails 5.1.6
 ## カタログ設計
 https://docs.google.com/spreadsheets/d/1flQyok8WbMjkA02tfLkSQdBn02-LJHVZCQUCPGrxrBw/edit#gid=278321252
 ## テーブル定義 
-
+https://docs.google.com/spreadsheets/d/1_PhjmuBX-cS-OSvogoIG0Wtqz6DgVR8_lgjh8IhoqtE/edit#gid=1502881689
 ## 画面遷移図
-
+https://docs.google.com/spreadsheets/d/15rJe-yBguZTJc7ctZNp-lIiE6BCTvJla9a12p9Pd9co/edit#gid=0
 ## 画面ワイヤーフレーム
-
+https://docs.google.com/spreadsheets/d/1efVgF3qcgU0xCyjmLjXsvEzAR7gFPF_ZWohl5LgOhr8/edit#gid=1012776025
 ## 使用予定Gem
+
+* jquery-rails
+* bcrypt
+* carrierwave
+* mini_magick
