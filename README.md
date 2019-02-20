@@ -53,13 +53,13 @@ Ruby 2.4.0 Rails 5.1.6
 　* ユーザーが不動産業者にメール
 
 ## カタログ設計
-https://docs.google.com/spreadsheets/d/1flQyok8WbMjkA02tfLkSQdBn02-LJHVZCQUCPGrxrBw/edit#gid=278321252
+https://docs.google.com/spreadsheets/d/1flQyok8WbMjkA02tfLkSQdBn02-LJHVZCQUCPGrxrBw/edit?usp=sharing
 ## テーブル定義 
-https://docs.google.com/spreadsheets/d/1_PhjmuBX-cS-OSvogoIG0Wtqz6DgVR8_lgjh8IhoqtE/edit#gid=1502881689
+https://docs.google.com/spreadsheets/d/1_PhjmuBX-cS-OSvogoIG0Wtqz6DgVR8_lgjh8IhoqtE/edit?usp=sharing
 ## 画面遷移図
-https://docs.google.com/spreadsheets/d/15rJe-yBguZTJc7ctZNp-lIiE6BCTvJla9a12p9Pd9co/edit#gid=0
+https://docs.google.com/spreadsheets/d/15rJe-yBguZTJc7ctZNp-lIiE6BCTvJla9a12p9Pd9co/edit?usp=sharing
 ## 画面ワイヤーフレーム
-https://docs.google.com/spreadsheets/d/1efVgF3qcgU0xCyjmLjXsvEzAR7gFPF_ZWohl5LgOhr8/edit#gid=1012776025
+https://docs.google.com/spreadsheets/d/1efVgF3qcgU0xCyjmLjXsvEzAR7gFPF_ZWohl5LgOhr8/edit?usp=sharing
 ## 使用予定Gem
 
 * jquery-rails
