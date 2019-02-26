@@ -3,12 +3,43 @@
   <head>
     <title>Realestate</title>
     <%= csrf_meta_tags %>
-
+    <meta name="viewport" content="width=device-width">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <% unless current_office.blank? %>
+    로그인됨
+    <% else %>
+    로그인 안됨
+    <% end %>
+    
+    <% unless current_user.blank? %>
+    유저 로그인됨
+    <% else %>
+    유저 로그인 안됨
+    <% end %>
+    
+    <% if user_signed_in? %>
+      <%= link_to "user Profile", user_path(current_user.id) %>
+      <%= link_to "user Logout", destroy_user_session_path(current_user.id), method: :delete %>
+      <%= current_user.email %>
+    <% elsif office_signed_in? %>
+      <%= link_to "office Profile", office_path(current_office.id) %>
+      <%= link_to "office Logout", destroy_office_session_path(current_office.id), method: :delete %>
+      <%= current_office.email %>
+    <% else %>
+      <%= link_to "Office Sign up", new_office_registration_path %>
+      <%= link_to "Office Login", new_office_session_path %>
+      
+      <%= link_to "User Sign up", new_user_registration_path %>
+      <%= link_to "User Login", new_user_session_path %>
+    <% end %>
+    
+    
+    
+    
     <%= yield %>
   </body>
 </html>
