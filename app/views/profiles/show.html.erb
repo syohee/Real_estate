@@ -1,0 +1,6 @@
+
+<%= image_tag @profile.profile.url if @profile.profile.url%>
+<%= @profile.name %>
+
+
+<%= link_to 'Profile Edit', edit_profile_path(@profile), class: 'button' %>

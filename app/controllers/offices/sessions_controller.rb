@@ -1,26 +1,6 @@
 # frozen_string_literal: true
 
 class Offices::SessionsController < Devise::SessionsController
-  def new
-  end
-  
-  def create
-    office = Office.find_by(email: params[:sessions][:email].downcase)
-    if office && office.valid_password?(params[:sessions][:password])
-      session[:office_id] = office.id
-      redirect_to realestates_path
-    else
-      flash.now[:danger] = 'login failed'
-      render 'new'
-    end
-  end
-  
-  def destroy
-    session.delete(:office_id)
-    flash[:notice] = 'logout success'
-    redirect_to realestates_path
-  end
-  
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in

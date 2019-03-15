@@ -1,4 +1,42 @@
-<% if office_signed_in? %>
-     
-      <%= current_office.email %>
+
+<% @product.each do |product| %>
+<div class="col-xs-12 col-md-6">
+  <div class="product">
+    <div class="product_user">
+      <%= image_tag product.office.profile.url if product.office.profile.url %>
+      <%= product.office.name %>
+    </div>
+    
+    <% product.images.each do |img| %>
+      <%= image_tag img.image.url if img.image.url %>
     <% end %>
+    
+    <div class="product_bottom">
+      <div class="product_option">
+        <%= link_to 'show', realestate_path(product.id) %>
+      
+        <% if defined?(current_office.id) %>
+          <% if product.office_id == current_office.id %>
+            <%= link_to 'edit', edit_realestate_path(product.id) %>
+            <%= link_to 'delete', realestate_path(product.id), method: :delete %>
+          <% end %>
+        <% end %>
+      </div>
+      
+      <div class="product_bottom_user"><%= product.office.name %></div>
+      <div class="product_content">name : <%= product.name %></div>
+      deposit : <%= product.deposit %>
+      reward : <%= product.reward %>
+      area : <%= product.area %>
+      structure : <%= product.structure.name %>
+      type : <%= product.type.name %>
+      address : <%= product.address %>
+      m_fees : <%= product.m_fees %>
+      rent : <%= product.rent %>
+      
+      
+    </div>
+  </div>
+  </div>
+<% end %>  
+

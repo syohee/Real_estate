@@ -10,33 +10,45 @@
 
   <body>
     <% unless current_office.blank? %>
-    로그인됨
+    
     <% else %>
-    로그인 안됨
+    
     <% end %>
     
     <% unless current_user.blank? %>
-    유저 로그인됨
+    
     <% else %>
-    유저 로그인 안됨
+    
     <% end %>
     
+    <%= link_to "TOP", realestates_path %>
+    
     <% if user_signed_in? %>
-      <%= link_to "user Profile", user_path(current_user.id) %>
-      <%= link_to "user Logout", destroy_user_session_path(current_user.id), method: :delete %>
+    
+      <%= link_to "profile", profile_path(current_user.id) %>
+      <%= link_to "user Logout", destroy_user_session_path, method: :delete %>
       <%= current_user.email %>
+      
     <% elsif office_signed_in? %>
-      <%= link_to "office Profile", office_path(current_office.id) %>
-      <%= link_to "office Logout", destroy_office_session_path(current_office.id), method: :delete %>
+      
+      <%= link_to "new realestate", new_realestate_path %>
+      <%= link_to "profile", profile_path(current_office.id) %>
+      <%= link_to "office Logout", destroy_office_session_path, method: :delete %>
       <%= current_office.email %>
+      
     <% else %>
+    
       <%= link_to "Office Sign up", new_office_registration_path %>
       <%= link_to "Office Login", new_office_session_path %>
       
       <%= link_to "User Sign up", new_user_registration_path %>
       <%= link_to "User Login", new_user_session_path %>
+      
     <% end %>
     
+    <% if signed_in? %>
+      
+    <% end %>
     
     
     

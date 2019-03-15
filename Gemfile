@@ -55,4 +55,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'jquery-rails'
 gem 'devise'
-gem 'bcrypt', '3.1.11'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'geocoder'

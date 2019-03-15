@@ -1,44 +1,6 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_action :set_user, only: [:show, :destroy]
-  
-  def new
-    @user = User.new
-  end
-  
-  def create
-    @user = User.new(user_params)
-    @user.profile = Rails.root.join('app', 'assets', 'images', 'profile_default.jpg').open
-    if @user.save
-      redirect_to new_user_session_path
-    else
-      render 'new'
-    end
-  end
-  
-  def destroy
-  end
-  
-  def show
-    # @profile = User.find(current_user.id).profile
-    # @favorite_pictures = @user.favorite_pictures
-  end
-  
-  private
-  
-  def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
-  end
-  
-  def profile_params
-    params.require(:profile).permit(:image, :image_cache)
-  end
-  
-  def set_user
-    @user = User.find(current_user.id)
-  end
-  
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -48,9 +10,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    @user = User.new(set_param)
+    if @user.save
+      
+      @user.profile = Rails.root.join('app', 'assets', 'images', 'profile_default.jpg').open
+      @user.save!
+      
+      redirect_to new_user_session_path
+    else
+      render 'new'
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -76,8 +47,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
+  def set_param
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+  
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])

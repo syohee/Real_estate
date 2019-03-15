@@ -1,0 +1,33 @@
+
+  <%= image_tag @product.office.profile.url %>
+  <%= @product.office.name %>
+
+  
+  <% @product.images.each do |img| %>
+    <%= image_tag img.image.url if img.image.url %>
+  <% end %>
+    
+    
+  <% if user_signed_in? %>
+    <% if @liked.present? %>
+      <%= link_to image_tag('/assets/favorite_on.PNG'), liked_path(id: @liked.id), method: :delete %>
+    <% else %>
+      <%= link_to image_tag('/assets/favorite_off.PNG'), likeds_path(picture_id: @product.id), method: :post %>
+    <% end %>
+  <% end %>
+    
+    
+  office : <%= @product.office.name %>
+  name : <%= @product.name %>
+  deposit : <%= @product.deposit %>
+  reward : <%= @product.reward %>
+  area : <%= @product.area %>
+  structure : <%= @product.structure.name %>
+  type : <%= @product.type.name %>
+  address : <%= @product.address %>
+  m_fees : <%= @product.m_fees %>
+  rent : <%= @product.rent %>
+      
+  </div>
+</div>
+ <!--link_to 'back', pictures_path, class: 'button' -->

@@ -1,0 +1,38 @@
+<%= form_with(model: @product, url: realestates_path, local: true) do |form| %>
+  <%= form.hidden_field :name %>
+  <%= form.hidden_field :deposit %>
+  <%= form.hidden_field :reward %>
+  <%= form.hidden_field :area %>
+  <%= form.hidden_field :address %>
+  <%= form.hidden_field :m_fees %>
+  <%= form.hidden_field :rent %>
+  <%= form.hidden_field :floor %>
+  <%= form.hidden_field :structure_id %>
+  <%= form.hidden_field :type_id %>
+  <%= form.hidden_field :image_cache, :multiple => true, name: "images[image][]" %>
+  
+  <% @product.images.each do |img| %>
+    <%= image_tag img.image.url %>
+  <% end %>
+  
+  
+  <%= form.submit "submit", class: 'button confirm_submit' %>
+<% end %>
+
+<%= form_with(model: @picture, url: new_realestate_path, local: true, method: 'get') do |form| %>
+  <%= form.hidden_field :name %>
+  <%= form.hidden_field :deposit %>
+  <%= form.hidden_field :reward %>
+  <%= form.hidden_field :area %>
+  <%= form.hidden_field :address %>
+  <%= form.hidden_field :m_fees %>
+  <%= form.hidden_field :rent %>
+  <%= form.hidden_field :floor %>
+  <%= form.hidden_field :structure_id %>
+  <%= form.hidden_field :type_id %>
+  <%= form.hidden_field :image_cache %>
+  <%= form.submit 'back', name: 'back', class: 'button confirm_back' %>
+<% end %>
+
+
+
