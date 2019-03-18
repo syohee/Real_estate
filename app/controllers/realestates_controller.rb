@@ -32,6 +32,12 @@ class RealestatesController < ApplicationController
     # end
   end
   
+  def search
+    @product = Product.where("address like ?", "%#{params[:search_addr]}%")
+
+    render 'index'
+  end
+  
   def edit
   end
   

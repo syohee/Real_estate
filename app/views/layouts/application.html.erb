@@ -6,20 +6,10 @@
     <meta name="viewport" content="width=device-width">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" src="/assets/search.js"></script>
   </head>
 
   <body>
-    <% unless current_office.blank? %>
-    
-    <% else %>
-    
-    <% end %>
-    
-    <% unless current_user.blank? %>
-    
-    <% else %>
-    
-    <% end %>
     
     <%= link_to "TOP", realestates_path %>
     
@@ -46,9 +36,7 @@
       
     <% end %>
     
-    <% if signed_in? %>
-      
-    <% end %>
+    
     
     
     
