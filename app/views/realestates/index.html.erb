@@ -1,8 +1,30 @@
 <%= form_tag search_realestates_path, :method => :get do %>
-  <%= text_field_tag :search_addr %>
+  <%= text_field_tag :search_addr, nil, :placeholder => "地域を入力してください" %>
+  <%= select_tag :search_rent, options_for_select((3..100).step(0.5)), prompt: "家賃" %>万円
+  <% for search_structure in Structure.all %>
+    <label>
+      <%= check_box_tag "search_structures[search_structure][]", search_structure.id, false %>
+      <%= search_structure.name %>
+    </label>
+  <% end %>
+  <% for search_type in Type.all %>
+    <label>
+      <%= check_box_tag "search_types[search_type][]", search_type.id, false %>
+      <%= search_type.name %>
+    </label>
+  <% end %>
+  <% for search_term in Term.all %>
+    <label>
+      <%= check_box_tag "search_terms[search_term][]", search_term.id, false %>
+      <%= search_term.name %>
+    </label>
+  <% end %>
   <%= submit_tag "Search!" %>
 <% end %>
 
+<% if @product.blank? %>
+  <h3>条件にあう物件がありません。条件を変更して再度検索してください。</h3>
+<% end %>
 <div class="product_box">
   <% @product.each do |product|  %>
     <div class="col-xs-12 col-md-6">
@@ -38,7 +60,10 @@
           address : <%= product.address %>
           m_fees : <%= product.m_fees %>
           rent : <%= product.rent %>
-          
+          product_terms : 
+          <% product.product_terms.each do |t| %>
+            <%= t.term.name %>
+          <% end %>
           
         </div>
       </div>

@@ -53,6 +53,15 @@
     </div>
     
     
+    <%= form.label :product_term %>
+    <% for product_term in Term.all %>
+      <label>
+        <%= check_box_tag "product_terms[product_term][]", product_term.id, false %>
+        <%= product_term.name %>
+      </label>
+    <% end %>
+    
+    
     
     <%= form.submit class: 'button form_submit' %>
   
